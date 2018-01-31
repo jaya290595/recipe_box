@@ -1,0 +1,19 @@
+!!! 5
+%html
+%head
+	%title RecipeApp
+	=csrf_meta_tags
+	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+	= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+%body
+	%nav.navbar.navbar-default
+		.container
+			.navbar-brand= link_to "RecipeBox", root_path
+			%ul.nav.navbar-nav.navbar-right
+				%li= link_to "Recipe", new_recipe_path
+				%li= link_to "sign Out", root_path
+	.container
+		-flash.each do |name, msg|
+			=content_tag :div, msg, class:"alert"
+			
+	=yield	
